@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ProjectileHandler : MonoBehaviour
 {
     Rigidbody rb;
     float speed;
     float angle;
-    public Kinematics kinematics;
+    public KinematicsLevel kinematics;
     Vector3 originalPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

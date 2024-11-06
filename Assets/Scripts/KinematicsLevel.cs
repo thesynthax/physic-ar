@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Kinematics : MonoBehaviour
+public class KinematicsLevel : MonoBehaviour
 {
     public TextMeshProUGUI initialSpeedText;
     public TextMeshProUGUI angleText;
