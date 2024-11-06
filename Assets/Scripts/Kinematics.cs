@@ -22,7 +22,7 @@ public class Kinematics : MonoBehaviour
     private int[] angleValues = { 15, 30, 45, 60, 75 };
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         int randomSpeed = initialSpeedValues[Random.Range(0, initialSpeedValues.Length)];
         int randomAngle = angleValues[Random.Range(0, angleValues.Length)];
@@ -44,11 +44,15 @@ public class Kinematics : MonoBehaviour
         distance = Mathf.Round(Vector3.Distance(sourcePlatform.position, targetPlatform.position) * 100f) / 100f;
 
         float arrowDistance = Vector3.Distance(SourceDistanceArrow.transform.position, TargetDistanceArrow.transform.position);
-        SourceDistanceArrow.stemLength = arrowDistance * 0.3f;
-        TargetDistanceArrow.stemLength = arrowDistance * 0.3f;
+        if (distance > 7) {
+            SourceDistanceArrow.stemLength = arrowDistance * 0.33f;
+            TargetDistanceArrow.stemLength = arrowDistance * 0.33f;
+        } else {
+            SourceDistanceArrow.stemLength = arrowDistance * 0.25f;
+            TargetDistanceArrow.stemLength = arrowDistance * 0.25f;
+        }
 
         distanceText.text = distance + "m";
         distanceText.rectTransform.position = (sourcePlatform.position + targetPlatform.position) / 2;
-        distanceText.rectTransform.position += new Vector3(0, 0.1f, 0);
     }
 }

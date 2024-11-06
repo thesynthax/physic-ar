@@ -29,6 +29,8 @@ public class Projectile : MonoBehaviour
         float xVel = speed * Mathf.Cos(angleRad);
         float yVel = speed * Mathf.Sin(angleRad);
 
+        Debug.Log(xVel);
+
         rb.linearVelocity = new Vector3(xVel, yVel, 0);
 
         kinematics.ballArrow.gameObject.SetActive(false);
