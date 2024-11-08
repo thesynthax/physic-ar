@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class RollingHandler : MonoBehaviour
 {
+    Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
+        Debug.Log(rb.inertiaTensor);
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class RollingHandler : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Target"))
         {
-            Debug.Log(GetComponent<Rigidbody>().linearVelocity);
+            Debug.Log(GetComponent<Rigidbody>().linearVelocity.magnitude);
         }
     }
 
