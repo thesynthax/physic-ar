@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class RollingHandler : MonoBehaviour
 {
@@ -7,18 +8,22 @@ public class RollingHandler : MonoBehaviour
     public Transform sourcePlatform;
     Vector3 originalPos;
 
+    public TextMeshProUGUI velocityText;
+    public Transform velocityTextRoot;
+    Transform ARCamera;
     private bool playing;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //originalPos = transform.position;
         
         originalPos = sourcePlatform.position + (sourcePlatform.up * 0.3076f + sourcePlatform.forward * 0.6f) * 2f;
 
         playing = false;
         rb.isKinematic = true;
-        Debug.Log(transform.position);
+        velocityText.gameObject.SetActive(false);
+
+        ARCamera = rolling.ARCamera;
     }
 
     // Update is called once per frame
@@ -28,13 +33,16 @@ public class RollingHandler : MonoBehaviour
             transform.position = sourcePlatform.position + (sourcePlatform.up * 0.3076f + sourcePlatform.forward * 0.6f) * 2f;
             transform.eulerAngles = sourcePlatform.eulerAngles - Vector3.up * 90f;
         }
+
+        velocityTextRoot.LookAt(velocityTextRoot.position + ARCamera.rotation * Vector3.forward, ARCamera.rotation * Vector3.up);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Target"))
         {
-            Debug.Log(GetComponent<Rigidbody>().linearVelocity.magnitude);
+            velocityText.gameObject.SetActive(true);
+            velocityText.text = (Mathf.Round(rb.linearVelocity.magnitude*100f)/100f).ToString() + "m/s";
         }
     }
 
@@ -42,8 +50,6 @@ public class RollingHandler : MonoBehaviour
     {
         playing = true;
         rb.isKinematic = false;
-        //transform.position = sourcePlatform.position + (sourcePlatform.up * 0.3076f + sourcePlatform.forward * 0.6f) * 2f;
-        //transform.eulerAngles = sourcePlatform.eulerAngles - Vector3.up * 90f;
     }
 
     public void Reset()
@@ -51,6 +57,7 @@ public class RollingHandler : MonoBehaviour
         playing = false; 
         rb.isKinematic = true;
         rb.linearVelocity = Vector3.zero;
+        velocityText.gameObject.SetActive(false);
     }
 
 }
