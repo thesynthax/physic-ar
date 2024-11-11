@@ -1,5 +1,6 @@
 {
-  "dependencies": {
+    "dependencies": {
+    "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-10.27.3.tgz",
     "com.cloudedmountain.ide.neovim": "file:/home/thesynthax/projects/c-sharp/com.cloudedmountain.ide.neovim",
     "com.unity.ai.navigation": "2.0.4",
     "com.unity.collab-proxy": "2.5.2",

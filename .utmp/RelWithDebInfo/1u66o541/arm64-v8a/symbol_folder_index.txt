@@ -1,0 +1,1 @@
+/home/thesynthax/projects/unity/physic-ar-proto/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1u66o541/obj/arm64-v8a

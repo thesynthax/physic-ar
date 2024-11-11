@@ -1,0 +1,5 @@
+/home/thesynthax/projects/unity/physic-ar-proto/.utmp/RelWithDebInfo/1u66o541/arm64-v8a/CMakeFiles/edit_cache.dir
+/home/thesynthax/projects/unity/physic-ar-proto/.utmp/RelWithDebInfo/1u66o541/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/home/thesynthax/projects/unity/physic-ar-proto/.utmp/RelWithDebInfo/1u66o541/arm64-v8a/GameActivity/CMakeFiles/game.dir
+/home/thesynthax/projects/unity/physic-ar-proto/.utmp/RelWithDebInfo/1u66o541/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+/home/thesynthax/projects/unity/physic-ar-proto/.utmp/RelWithDebInfo/1u66o541/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

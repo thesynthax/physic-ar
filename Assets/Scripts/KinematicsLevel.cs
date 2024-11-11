@@ -15,6 +15,10 @@ public class KinematicsLevel : MonoBehaviour
     public Transform sourcePlatform;
     public Transform targetPlatform;
 
+    public Transform sourceRoot, targetRoot;
+
+    public Transform ARCamera;
+
     [HideInInspector] public int initialSpeed, angle;
     [HideInInspector] public float distance;
 
@@ -35,7 +39,6 @@ public class KinematicsLevel : MonoBehaviour
 
         ballArrow.stemLength = initialSpeed;
         ballArrow.transform.localEulerAngles = new Vector3(ballArrow.transform.localEulerAngles.x, ballArrow.transform.localEulerAngles.y, angle);
-
     }
 
     // Update is called once per frame
@@ -54,5 +57,9 @@ public class KinematicsLevel : MonoBehaviour
 
         distanceText.text = distance + "m";
         distanceText.rectTransform.position = (sourcePlatform.position + targetPlatform.position) / 2;
+        distanceText.transform.LookAt(distanceText.transform.position - ARCamera.position);
+
+        sourceRoot.LookAt(targetRoot);
+        targetRoot.LookAt(sourceRoot);
     }
 }
