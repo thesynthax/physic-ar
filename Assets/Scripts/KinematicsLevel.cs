@@ -6,6 +6,7 @@ public class KinematicsLevel : MonoBehaviour
     public TextMeshProUGUI initialSpeedText;
     public TextMeshProUGUI angleText;
     public TextMeshProUGUI distanceText;
+    public Transform distanceTextRoot;
 
     public ArrowGenerator ballArrow;
 
@@ -48,16 +49,17 @@ public class KinematicsLevel : MonoBehaviour
 
         float arrowDistance = Vector3.Distance(SourceDistanceArrow.transform.position, TargetDistanceArrow.transform.position);
         if (distance > 7) {
-            SourceDistanceArrow.stemLength = arrowDistance * 0.33f;
-            TargetDistanceArrow.stemLength = arrowDistance * 0.33f;
+            SourceDistanceArrow.stemLength = arrowDistance * 0.13f;
+            TargetDistanceArrow.stemLength = arrowDistance * 0.13f;
         } else {
-            SourceDistanceArrow.stemLength = arrowDistance * 0.25f;
-            TargetDistanceArrow.stemLength = arrowDistance * 0.25f;
+            SourceDistanceArrow.stemLength = arrowDistance * 0.075f;
+            TargetDistanceArrow.stemLength = arrowDistance * 0.075f;
         }
 
         distanceText.text = distance + "m";
         distanceText.rectTransform.position = (sourcePlatform.position + targetPlatform.position) / 2;
-        distanceText.transform.LookAt(distanceText.transform.position - ARCamera.position);
+        distanceTextRoot.LookAt(distanceTextRoot.position + ARCamera.rotation * Vector3.forward, ARCamera.rotation * Vector3.up);
+        //distanceText.rectTransform.Rotate(distanceText.rectTransform.up, 180f);
 
         sourceRoot.LookAt(targetRoot);
         targetRoot.LookAt(sourceRoot);

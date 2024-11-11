@@ -33,7 +33,7 @@ public class ProjectileHandler : MonoBehaviour
             //rb.isKinematic = true;
             transform.position = sourcePlatform.position + sourcePlatform.up * 0.662f;
             //transform.eulerAngles = Vector3.zero;
-            transform.rotation = sourcePlatform.rotation;
+            transform.eulerAngles = sourcePlatform.eulerAngles - Vector3.up * 90f;
         }
         else
         {
@@ -45,14 +45,14 @@ public class ProjectileHandler : MonoBehaviour
     {
         playing = true;
         transform.position = sourcePlatform.position + sourcePlatform.up * 0.662f;
-        transform.rotation = sourcePlatform.rotation;
+        transform.eulerAngles = sourcePlatform.eulerAngles - Vector3.up * 90f;
         float angleRad = Mathf.Deg2Rad * angle;
         float xVel = speed * Mathf.Cos(angleRad);
         float yVel = speed * Mathf.Sin(angleRad);
 
         Debug.Log(xVel);
 
-        rb.linearVelocity = new Vector3(xVel, yVel, 0);
+        rb.linearVelocity = transform.right * xVel + transform.up * yVel;
 
         kinematics.ballArrow.gameObject.SetActive(false);
 

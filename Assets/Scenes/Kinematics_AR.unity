@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 326382525}
   - component: {fileID: 326382524}
   - component: {fileID: 326382523}
-  - component: {fileID: 326382522}
+  - component: {fileID: 326382526}
   m_Layer: 0
   m_Name: ImageTarget_source
   m_TagString: Untagged
@@ -980,25 +980,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &326382522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326382521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 326382524}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: barcode_1
-  mDatasetName: Vuforia/physx_playground.xml
-  mCastedBehaviour: {fileID: 326382524}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &326382523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,7 +1050,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 326382522}
+  mPreview: {fileID: 326382526}
 --- !u!4 &326382525
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,6 +1067,25 @@ Transform:
   - {fileID: 1358838201}
   m_Father: {fileID: 1719443907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326382526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326382521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 326382524}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: barcode_1
+  mDatasetName: Vuforia/physx_playground.xml
+  mCastedBehaviour: {fileID: 326382524}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &331695109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,13 +1390,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532394680}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1814265045}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1449,8 +1449,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.8
+  m_fontSizeBase: 0.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3421,13 +3421,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170142153}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.331, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2028317608}
-  m_Father: {fileID: 1719443907}
+  m_Father: {fileID: 1358838201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1170142159
 Rigidbody:
@@ -3454,7 +3454,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 40
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1213869352
 GameObject:
@@ -3594,6 +3594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1058933630}
+  - {fileID: 1170142158}
   m_Father: {fileID: 326382525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415484421
@@ -3996,6 +3997,7 @@ MonoBehaviour:
   initialSpeedText: {fileID: 897420674}
   angleText: {fileID: 1153764190}
   distanceText: {fileID: 532394682}
+  distanceTextRoot: {fileID: 1814265045}
   ballArrow: {fileID: 2028317609}
   SourceDistanceArrow: {fileID: 560144765}
   TargetDistanceArrow: {fileID: 136995430}
@@ -4283,7 +4285,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1170142158}
   - {fileID: 167950705}
   - {fileID: 326382525}
   m_Father: {fileID: 0}
