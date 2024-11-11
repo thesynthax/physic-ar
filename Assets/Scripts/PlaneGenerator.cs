@@ -21,15 +21,23 @@ public class PlaneGenerator : MonoBehaviour
 
         m = new Mesh();
         mr.material = mat;
+        c.material = pMat;
     }
 
     private void Update()
     {
-        m.vertices = new Vector3[] {
-            source.position + new Vector3(source.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, source.GetComponent<Collider>().bounds.extents.z), 
-            target.position + new Vector3(-target.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, source.GetComponent<Collider>().bounds.extents.z),
+        /*m.vertices = new Vector3[] {
+            source.position + new Vector3(source.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, -source.GetComponent<Collider>().bounds.extents.z), 
             target.position + new Vector3(-target.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, -source.GetComponent<Collider>().bounds.extents.z),
-            source.position + new Vector3(source.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, -source.GetComponent<Collider>().bounds.extents.z) 
+            target.position + new Vector3(-target.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, source.GetComponent<Collider>().bounds.extents.z),
+            source.position + new Vector3(source.GetComponent<Collider>().bounds.extents.x, source.GetComponent<Collider>().bounds.extents.y, source.GetComponent<Collider>().bounds.extents.z) 
+        };*/
+
+        m.vertices = new Vector3[] {
+            source.position + source.up * source.localScale.y - source.forward * source.localScale.z - source.right * source.localScale.x,
+            target.position + target.up * target.localScale.y + target.forward * target.localScale.z - target.right * target.localScale.x,
+            target.position + target.up * target.localScale.y - target.forward * target.localScale.z - target.right * target.localScale.x,
+            source.position + source.up * source.localScale.y + source.forward * source.localScale.z - source.right * source.localScale.x
         };
 
         m.uv = new Vector2[] {
@@ -43,7 +51,6 @@ public class PlaneGenerator : MonoBehaviour
 
         mf.mesh = m;
         c.sharedMesh = m;
-        c.material = pMat;
 
         m.RecalculateBounds();
         m.RecalculateNormals();

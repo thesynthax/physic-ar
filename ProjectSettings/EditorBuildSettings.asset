@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Collision.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kinematics_AR.unity
     guid: 6b4039d4fc3bc884bb27d1ae86cbc1ec
+  - enabled: 1
+    path: Assets/Scenes/Rolling_AR.unity
+    guid: 74c32bcfd461c4fcca155ace8849f79d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
